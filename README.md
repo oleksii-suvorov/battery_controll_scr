@@ -4,10 +4,10 @@ Battery controll script for analizing battery state, turn off automatically comp
 
 Make sure scripts are in /home/user-folder/bin
 
-Make them autoloaded on start up. Thus add BAcontroll file to /etc/init.d/ or equivalent to your distr. system init folder 
+Make them autoloaded on start up. Thus add BAcontroll file to /etc/init.d/ or equivalent to your distr. system init folder, and then create symbol link to /etc/rc.d (or /etc/rc5.d/ for Kali)
 
-You also need to install festival if you want audio notifying. If not you need correct script a bit.
+You also need to install festival if you want audio notifying.
 
-then you would want manually stop, start, restart and check status by typing:
+If you would want manually stop, start, restart and check status, you can type:
 
 /etc/init.d/BAcontrol <start | stop | status | restart >
