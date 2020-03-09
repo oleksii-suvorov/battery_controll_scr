@@ -1,0 +1,60 @@
+#!/bin/bash
+# chkconfig: 2345 20 80
+# description: My custom Battery lvl checker....
+
+# Source function library.
+#. /home/oleskiy/bin/BAcontrol.sh
+
+#start() {
+#    sleep 60
+#    /home/oleskiy/bin/BAcontroll.sh &
+    # example: daemon program_name &
+#}
+
+#stop() {
+#    killall /etc/init.d/BAcontrol
+    # example: killproc program_name
+#}
+
+case "$1" in
+    start)
+	echo "Plese wait. Setting up BAcontrol 25 sec..."
+	sleep 5
+	echo "20 sec..."
+	sleep 5
+	echo "15 sec..."
+	sleep 5
+	echo "10 sec..."
+	sleep 5
+	echo "5 sec..."
+	echo "Success!"
+	/home/oleskiy/bin/BAcontrol.sh 15 00 23 &
+	sleep 15
+	echo "Plese wait. Setting up BAlvlcontrol 25 sec..."
+      	sleep 5
+        echo "10 sec..."
+        sleep 5
+        echo "5 sec..."
+        sleep 5
+	echo "Success!"
+	/home/oleskiy/bin/BAlvlcontrol.sh &
+       ;;
+    stop)
+	killall BAcontrol BAcontrol.sh BAlvlcontrol BAlvlcontrol.sh
+       ;;
+    restart)
+	killall BAcontrol BAcontrol.sh BAlvlcontrol BAlvlcontrol.sh
+	/home/oleskiy/bin/BAcontrol.sh 15 00 23 &
+	/home/oleskiy/bin/BAlvlcontrol.sh &
+       ;;
+    status)
+	ps aux | grep "BAcontrol*"
+	ps aux | grep "BAlvlcontrol*"
+       # code to check status of app comes here 
+       # example: status program_name
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0
