@@ -1,3 +1,5 @@
+needs work
+
 # Battery charging lvl controll notifyer. Works on Kali Linux.
 
 Battery controll script for analizing battery state, turn off automatically computer when law battery and notify user when it is near 100% charge.
